@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 @Table(name = "proizvod", schema = "evidencija_projekat", catalog = "postgres")
 public class ProizvodEntity {
     private int idProizvod;
-    private String userId;
+    private Integer korisnikId;
     private String naziv;
     private String napomena;
     private String cena;
@@ -24,13 +24,13 @@ public class ProizvodEntity {
     }
 
     @Basic
-    @Column(name = "user_id")
-    public String getUserId() {
-        return userId;
+    @Column(name = "korisnik_id")
+    public Integer getKorisnikId() {
+        return korisnikId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setKorisnikId(Integer korisnikId) {
+        this.korisnikId = korisnikId;
     }
 
     @Basic
@@ -81,7 +81,7 @@ public class ProizvodEntity {
         ProizvodEntity that = (ProizvodEntity) o;
 
         if (idProizvod != that.idProizvod) return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
+        if (korisnikId != null ? !korisnikId.equals(that.korisnikId) : that.korisnikId != null) return false;
         if (naziv != null ? !naziv.equals(that.naziv) : that.naziv != null) return false;
         if (napomena != null ? !napomena.equals(that.napomena) : that.napomena != null) return false;
         if (cena != null ? !cena.equals(that.cena) : that.cena != null) return false;
@@ -93,7 +93,7 @@ public class ProizvodEntity {
     @Override
     public int hashCode() {
         int result = idProizvod;
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        result = 31 * result + (korisnikId != null ? korisnikId.hashCode() : 0);
         result = 31 * result + (naziv != null ? naziv.hashCode() : 0);
         result = 31 * result + (napomena != null ? napomena.hashCode() : 0);
         result = 31 * result + (cena != null ? cena.hashCode() : 0);
