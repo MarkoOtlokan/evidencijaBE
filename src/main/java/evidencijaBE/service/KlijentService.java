@@ -34,6 +34,7 @@ public class KlijentService {
     }
 
     public KlijentEntity create(KlijentEntity klijentEntity) {
+        //TODO
         return klijentEntity;
     }
 
