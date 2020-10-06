@@ -32,9 +32,9 @@ public class KorisnikController {
         return ResponseEntity.ok(korisnikService.create(tmpKorisnik));
     }
 
-    @DeleteMapping{"/{id}"}
-    public boolean delete(@PathVariable Long id){
-        return korisnikService.delete(id);
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        korisnikService.delete(id);
     }
 
 }

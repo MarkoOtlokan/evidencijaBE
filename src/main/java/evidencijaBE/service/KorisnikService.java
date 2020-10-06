@@ -38,8 +38,7 @@ public class KorisnikService {
         return null;
     }
 
-    public boolean delete(Long id) {
-        //TODO
-        return false;
+    public void delete(Long id) {
+        korisnikRepository.deleteById(id);
     }
 }
