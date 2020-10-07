@@ -15,7 +15,11 @@ public class UslugaService {
     @Autowired
     UslugaRepository uslugaRepository;
 
-    public UslugaEntity findOne(Integer id){
+    public List<UslugaEntity> findAll(){
+        return  uslugaRepository.findAll();
+    }
+
+    public UslugaEntity findById(Integer id){
         Optional<UslugaEntity> usluga = uslugaRepository.findById(id);
         UslugaEntity tmpUsluga = new UslugaEntity();
         if(usluga.isPresent()){
@@ -41,6 +45,10 @@ public class UslugaService {
 
     public UslugaEntity addUsluga(UslugaEntity uslugaEntity){
         return  uslugaRepository.save(uslugaEntity);
+    }
+
+    public void deleteUsluga(Integer id){
+        uslugaRepository.deleteById(id);
     }
 
 }
