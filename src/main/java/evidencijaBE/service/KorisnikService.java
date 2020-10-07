@@ -14,11 +14,31 @@ public class KorisnikService {
     @Autowired
     KorisnikRepository korisnikRepository;
 
-    public Optional<KorisnikEntity> findById(Long id){
-        return korisnikRepository.findById(id);
+    public KorisnikEntity findById(Long id){
+        Optional<KorisnikEntity> korisnik = korisnikRepository.findById(id);
+        KorisnikEntity tmpKorisnik = new KorisnikEntity();
+        if(korisnik.isPresent()){
+            tmpKorisnik.setIdKorisnik(korisnik.get().getIdKorisnik());
+            tmpKorisnik.setEmail(korisnik.get().getEmail());
+            tmpKorisnik.setIme(korisnik.get().getIme());
+            tmpKorisnik.setPrezime(korisnik.get().getPrezime());
+            tmpKorisnik.setSifra(korisnik.get().getSifra());
+            tmpKorisnik.setTimeStamp(korisnik.get().getTimeStamp());
+        }
+
+        return tmpKorisnik;
     }
 
     public List<KorisnikEntity> findAll(){
         return korisnikRepository.findAll();
+    }
+
+    public KorisnikEntity create(KorisnikEntity tmpKorisnik) {
+    //TODO
+        return null;
+    }
+
+    public void delete(Long id) {
+        korisnikRepository.deleteById(id);
     }
 }
