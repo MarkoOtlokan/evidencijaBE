@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="postgres@127.0.0.1" uuid="b16c934b-9f9a-45c9-b57b-95b3f816548a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=evidencija_projekat</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="postgres@127.0.0.1 [2]" uuid="4ed40900-d4b9-4dce-bb5e-da79e968c9cf">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=evidencija_projekat</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="postgres@127.0.0.1 [3]" uuid="9faa3724-e130-4b8a-891d-d7abf8fec85f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=evidencija_projekat</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="postgres@localhost" uuid="b450caf0-f411-4bd4-857f-065767c6bfcf">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="postgres@127.0.0.1 [4]" uuid="b43879ae-96e0-4b66-860a-b14856a1f4f5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=evidencija_projekat</jdbc-url>
+    </data-source>
+  </component>
+</project>
