@@ -19,7 +19,14 @@ public class ProizvodService {
         Optional<ProizvodEntity> proizvod = proizvodRepository.findById(id);
         ProizvodEntity tmpProizvod = new ProizvodEntity();
 
-        //TODO
+        if(proizvod.isPresent()){
+            tmpProizvod.setIdProizvod(proizvod.get().getIdProizvod());
+            tmpProizvod.setKorisnikId(proizvod.get().getIdProizvod());
+            tmpProizvod.setCena(proizvod.get().getCena());
+            tmpProizvod.setNapomena(proizvod.get().getNapomena());
+            tmpProizvod.setNaziv(proizvod.get().getNaziv());
+            tmpProizvod.setTimeStamp(proizvod.get().getTimeStamp());
+        }
 
         return  tmpProizvod;
     }
@@ -33,8 +40,7 @@ public class ProizvodService {
     }
 
     public ProizvodEntity addProizvod(ProizvodEntity proizvodEntity) {
-        //TODO
-        return proizvodEntity;
+        return  proizvodRepository.save(proizvodEntity);
     }
 
     public void deleteProizvod(Integer id){

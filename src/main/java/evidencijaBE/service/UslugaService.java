@@ -15,8 +15,20 @@ public class UslugaService {
     @Autowired
     UslugaRepository uslugaRepository;
 
-    public Optional<UslugaEntity> findOne(Integer id){
-        return uslugaRepository.findById(id);
+    public UslugaEntity findOne(Integer id){
+        Optional<UslugaEntity> usluga = uslugaRepository.findById(id);
+        UslugaEntity tmpUsluga = new UslugaEntity();
+        if(usluga.isPresent()){
+            tmpUsluga.setIdUsluga(usluga.get().getIdUsluga());
+            tmpUsluga.setKlijentId(usluga.get().getKlijentId());
+            tmpUsluga.setKorisnikId(usluga.get().getKorisnikId());
+            tmpUsluga.setProizvodId(usluga.get().getProizvodId());
+            tmpUsluga.setCena(usluga.get().getCena());
+            tmpUsluga.setNapomena(usluga.get().getNapomena());
+            tmpUsluga.setPlaceno(usluga.get().getPlaceno());
+            tmpUsluga.setTimeStamp(usluga.get().getTimeStamp());
+        }
+        return tmpUsluga;
     }
 
     public List<UslugaEntity> findByUser(Integer id){
@@ -25,6 +37,10 @@ public class UslugaService {
 
     public List<UslugaEntity> findByProizvod(Integer id){
         return uslugaRepository.findAllByProizvodId(id);
+    }
+
+    public UslugaEntity addUsluga(UslugaEntity uslugaEntity){
+        return  uslugaRepository.save(uslugaEntity);
     }
 
 }

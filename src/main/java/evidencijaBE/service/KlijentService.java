@@ -34,8 +34,7 @@ public class KlijentService {
     }
 
     public KlijentEntity create(KlijentEntity klijentEntity) {
-        //TODO
-        return klijentEntity;
+        return  klijentRepository.save(klijentEntity);
     }
 
     public void delete(Integer id) {
