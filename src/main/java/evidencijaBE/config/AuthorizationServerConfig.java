@@ -15,7 +15,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     private static final String CLIENT_ID = "ang-client";
-    static final String CLIENT_SECRET = "{noop}navigator";
+    static final String CLIENT_SECRET = "topsekret";
 
     private static final String GRANT_TYPE_PASSWORD = "password";
     private static final String AUTHORIZATION_CODE = "authorization_code";
