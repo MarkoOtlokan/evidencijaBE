@@ -5,8 +5,9 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import evidencijaBE.model.EvUser;
-import evidencijaBE.repository.UserRepository;
+
+import evidencijaBE.model.KorisnikEntity;
+import evidencijaBE.repository.KorisnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,25 +23,25 @@ import org.springframework.stereotype.Service;
 public class DefaultUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private KorisnikRepository userRepository;
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        EvUser user = userRepository.findByUsername(username);
+        KorisnikEntity user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         } else {
-
-            List<GrantedAuthority> grantedAuthorities = user.getUserAuthorities().stream()
-                    .map(authority -> new SimpleGrantedAuthority(authority.getAuthority().getNaziv()))
-                    .collect(Collectors.toList());
+            //TODO
+            //List<GrantedAuthority> grantedAuthorities = user.getUserAuthorities().stream()
+              //      .map(authority -> new SimpleGrantedAuthority(authority.getAuthority().getNaziv()))
+             //       .collect(Collectors.toList());
 
             @SuppressWarnings("deprecation")
             UserDetails userDetail = User.withDefaultPasswordEncoder()
-                    .username(user.getUsername())
-                    .password(user.getPassword())
-                    .authorities(grantedAuthorities)
+                    .username(user.getKorisnickoIme())
+                    .password(user.getSifra())
+                    .authorities("*")//TODO
                     .build();
 
             return userDetail;
