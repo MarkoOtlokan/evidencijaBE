@@ -35,7 +35,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        //System.out.println("ovde sam 0");
         clients
                 .inMemory()
                 .withClient(CLIENT_ID)

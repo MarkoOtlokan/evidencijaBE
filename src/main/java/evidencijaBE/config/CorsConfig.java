@@ -36,7 +36,6 @@ public class CorsConfig implements Filter {
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
-        //System.out.println("radim nesto");
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         source.registerCorsConfiguration("/**", config.applyPermitDefaultValues());
@@ -47,7 +46,6 @@ public class CorsConfig implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        //System.out.println("ovde sam1");
         final HttpServletResponse response = (HttpServletResponse) res;
         logger.info(req.toString());
         response.setHeader("Access-Control-Allow-Origin", "*");
