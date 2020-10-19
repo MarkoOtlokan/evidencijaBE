@@ -2,6 +2,7 @@ package evidencijaBE.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,6 +23,14 @@ public class KorisnikEntity {
             joinColumns = @JoinColumn(name = "korisnik_id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<RolesEntity> roles = new HashSet<>();
+
+    public Set<RolesEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RolesEntity> roles) {
+        this.roles = roles;
+    }
 
 
     @Id
