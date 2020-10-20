@@ -2,6 +2,9 @@ package evidencijaBE.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "korisnik", schema = "evidencija_projekat", catalog = "postgres")
@@ -13,6 +16,22 @@ public class KorisnikEntity {
     private String prezime;
     private String sifra;
     private Timestamp timeStamp;
+
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "korisnik_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
+    private Set<RolesEntity> roles = new HashSet<>();
+
+    public Set<RolesEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RolesEntity> roles) {
+        this.roles = roles;
+    }
+
 
     @Id
     @Column(name = "id_korisnik")
@@ -79,6 +98,8 @@ public class KorisnikEntity {
     public Timestamp getTimeStamp() {
         return timeStamp;
     }
+
+
 
     public void setTimeStamp(Timestamp timeStamp) {
         this.timeStamp = timeStamp;
